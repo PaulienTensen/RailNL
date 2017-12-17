@@ -129,7 +129,7 @@ class Trein(object):
                 #print(sporen)
                 
                 # Als sporen bij station al zijn bereden.
-                if verbinding1 in sporen or verbinding2 in sporen:
+                if not verbinding1 in sporen and not verbinding2 in sporen:
                     onbereden_sporen.append(row)
                     
             

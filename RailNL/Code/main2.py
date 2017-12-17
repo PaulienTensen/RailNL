@@ -11,7 +11,7 @@ import functies.minuten
 import algo.hillclimber
 import inladen.inladen
 import time
-import visualisatie.lijnvoeringtest
+import visualisatie.visualisatie
 import algo.hillclimber2
 
 

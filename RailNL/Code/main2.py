@@ -23,9 +23,9 @@ start_time = time.clock()
 
 # AANTAL MINUTEN
 
-HILL = 10000
+HILL = 1000
 
-HILL2 = 100000
+HILL2 = 1000
 
 # Aantal minuten.
 
@@ -156,7 +156,7 @@ print(time.clock() - start_time1, "seconden")
 
 
 
-visualisatie.lijnvoeringtest.visualisatie(nieuw_traject[0], STATIONS, VERBINDINGEN)
+visualisatie.visualisatie.visualisatie(nieuw_traject[0], STATIONS, VERBINDINGEN)
 
 
 

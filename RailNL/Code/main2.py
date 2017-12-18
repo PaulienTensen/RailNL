@@ -34,7 +34,7 @@ MAX2 = 180
 SCORE = 0
 
 # Aantal trajecten.
-RANGE = 10
+TRAJECTEN = 10
  
 # Te gebruiken CSV's. 
 STATIONS = 'Data/StationsNationaal.csv'
@@ -60,7 +60,7 @@ graph = inladen.inladen.graph(stations, alle_sporen)
 uithoeken = inladen.inladen.uithoeken(graph, stations)
 
 # Pas de hillclimber toe.
-resultaat = algo.hillclimber.hillclimber(SCORE, HILL, RANGE, MAX, stations, verbindingen, uithoeken, graph, TOTAAL_SPOREN, TOTAAL_STATIONS)
+resultaat = algo.hillclimber.hillclimber(SCORE, HILL, TRAJECTEN, MAX, stations, verbindingen, uithoeken, graph, TOTAAL_SPOREN, TOTAAL_STATIONS)
 
 # Hill climber returnd 4 gegevens. Deze worden weer opgehaald. 
 score = resultaat[0]
@@ -84,33 +84,10 @@ print("AANTAL SPOREN: ", len(sporen))
 print("AANTAL STATIONS: ", len(trajecten_algemeen))
 print("TOTAAL AANTAL MINUTEN: ", totale_tijdsduur)
 print()
-
-
 print(time.clock() - start_time, "seconden")
 
 
-#visualisatie.visualisatie.visualisatie(alle_trajecten, STATIONS, VERBINDINGEN)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 start_time1 = time.clock()
-
 nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graph, sporen, MAX2, TOTAAL_SPOREN, HILL2, verbindingen, stations)
 
 def_score = nieuw_traject[2]
@@ -119,8 +96,6 @@ def_tijden = nieuw_traject[1]
 def_sporen = nieuw_traject[3]
 def_trajecten_algemeen = nieuw_traject[4]
 def_totaal_tijd = nieuw_traject[5]
-
-
 
 for i in range(len(def_trajecten)):
     print()
@@ -135,12 +110,6 @@ print("AANTAL SPOREN: ", len(def_sporen))
 print("AANTAL STATIONS: ", len(def_trajecten_algemeen))
 print("TOTAAL AANTAL MINUTEN:", def_totaal_tijd)
 print()
-
-
-
-
-
-
 print(time.clock() - start_time1, "seconden")
 
 

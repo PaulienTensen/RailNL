@@ -72,9 +72,14 @@ Constrained optimalization problem (COP). Hierbij moet een zo goed mogelijke
 oplossing worden gevonden. 
 
 ### Resultaten tot nu toe
-
+#### Loop nearest neighbour 11 trajecten.
 Upperbound Holland = 9919,9619 Onze score = 9919,9604
 Upperbound Nederland = 9819, 8449 Onze score = 9779, 8088
+
+#### Loop verderzoeken in nearest neighbour algoritme (main3.py)
+Nederland score: 9462,7487 (10 trajecten). 
+
+#### 
 
 
 ## Auteurs

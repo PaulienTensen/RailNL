@@ -22,6 +22,7 @@ class Trein(object):
     overschreden.
     """
 
+    
     def __init__(self, traject, eindstation, beginstation, tijdsduur):
         self.traject = traject
         self.eindstation = eindstation
@@ -47,6 +48,7 @@ class Trein(object):
 
         self.tijdsduur += tijd
 
+        
     def spoor_toevoegen(self, sporen, huidig_station, beste_optie):
         """Deze functie voegt het spoor toe en onthoudt de verbindingen."""
 
@@ -65,8 +67,8 @@ class Trein(object):
         """
         Deze functie kiest de sporen door middel van een random algoritme.
 
-        Het maakt gebruik van de constrains van ons nearest neighbour
-        algoritme. De functie returned het beste station en de beste tijd.
+        Het maakt gebruik van de constraints van ons nearest neighbour
+        algoritme. 
         """
 
         # Lege lijsten om stations aan toe te voegen.
@@ -76,6 +78,7 @@ class Trein(object):
         terugweg = []
 
         for rij in richtingen:
+        
             # Als de richting nog niet in trajecten zit voeg deze toe aan
             # stations die nog niet bereden zijn.
             if rij[0][0] not in trajecten_algemeen:
@@ -147,12 +150,14 @@ class Trein(object):
             return beste_station, beste_tijd
 
 
+<<<<<<< HEAD
     # Random kiezen.
+=======
+>>>>>>> a51c1c2a4a34ff59c1acaa6f7e13292e1c03217e
     def opties_random(self, sporen, graph, trajecten_algemeen, huidig_station):
         """
         Deze functie kiest alle stations en sporen random.
 
-        De functie returned het beste station en beste tijd.
         """
         richtingen = graph[huidig_station]
 
@@ -168,7 +173,11 @@ class Trein(object):
 
         return beste_station, beste_tijd
 
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> a51c1c2a4a34ff59c1acaa6f7e13292e1c03217e
     def opties_farest(self, sporen, graph, trajecten_algemeen, huidig_station):
         """
         Deze functie kiest steeds de farest neighbour om heen te gaan.
@@ -176,7 +185,6 @@ class Trein(object):
         Als het station nog niet is bereden kies de farest neigbour om naar
         toe te gaan. Anders die het onbereden station. Vervolgens kies het
         station met onbereden sporen. Kies tot slot random station.
-        De functie returned het beste station en de beste tijd.
         """
 
         # Lege lijsten om stations aan toe te voegen.
@@ -259,8 +267,12 @@ class Trein(object):
             beste_tijd = int(rij[1][0])
             return beste_station, beste_tijd
 
+<<<<<<< HEAD
 
     # Deze functie maakt de beslissing welk spoor er wordt genomen.
+=======
+            
+>>>>>>> a51c1c2a4a34ff59c1acaa6f7e13292e1c03217e
     def opties_nearest(self, sporen, graph, trajecten_algemeen,
             huidig_station):
         """
@@ -272,8 +284,6 @@ class Trein(object):
         bereden is kies onbereden station. Als alle stations bereden zijn kies
         station met onbereden sporen. Als alle stations bereden zijn en alle
         sporen, ga terug als dit de enige optie is.
-
-        De functie returned de beste tijd en beste station.
         """
 
         richtingen = graph[huidig_station]
@@ -352,10 +362,14 @@ class Trein(object):
             beste_tijd = int(rij[1][0])
             return beste_station, beste_tijd
 
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> a51c1c2a4a34ff59c1acaa6f7e13292e1c03217e
     def pop(self, trajecten_algemeen, sporen):
         """
-        Deze functie verwijderd de laatste verbinding uit sporen.
+        Deze functie verwijdert de laatste verbinding uit sporen.
 
         Als er maar één station in het traject zit, deze niet verwijderen.
         """
@@ -375,7 +389,11 @@ class Trein(object):
         if laatste_verbinding == sporen[-1]:
             pop3 = sporen.pop()
 
+<<<<<<< HEAD
 
+=======
+            
+>>>>>>> a51c1c2a4a34ff59c1acaa6f7e13292e1c03217e
     def verminderen(self, laatste_verbinding):
         """Deze functie verwijderd tijd van laatste verbinding."""
 

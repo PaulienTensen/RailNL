@@ -4,7 +4,7 @@ import functies.minuten
 import copy
 
 
-def hillclimber3(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_algemeen1, graph, sporen1, MAX, TOTAAL_SPOREN, score1, HILL2, verbindingen):
+def verderzoeken(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_algemeen1, graph, sporen1, MAX, TOTAAL_SPOREN, score1, HILL2, verbindingen):
 
     aantal_trajecten = len(alle_trajecten1)
     totaal_tijd1 = functies.minuten.minuten(alle_tijdsduur1)

@@ -12,7 +12,7 @@ import algo.hillclimber
 import inladen.inladen
 import time
 import visualisatie.visualisatie
-import algo.hillclimber3
+import algo.hill_verderzoeken
 
 
 # Houd de tijd bij. 
@@ -23,9 +23,9 @@ start_time = time.clock()
 
 # AANTAL MINUTEN
 
-HILL = 100000
+HILL = 100
 
-HILL2 = 10000
+HILL2 = 100
 
 # Aantal minuten.
 MAX = 180
@@ -122,7 +122,7 @@ print(time.clock() - start_time, "seconden")
 
 start_time1 = time.clock()
 
-nieuw_traject = algo.hillclimber3.hillclimber3(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graph, sporen, MAX2, TOTAAL_SPOREN, score, HILL2, verbindingen)
+nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graph, sporen, MAX2, TOTAAL_SPOREN, score, HILL2, verbindingen)
 
 def_score = nieuw_traject[2]
 def_trajecten = nieuw_traject[0]

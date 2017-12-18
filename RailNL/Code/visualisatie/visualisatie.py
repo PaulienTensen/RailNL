@@ -13,7 +13,7 @@ import csv
 
 
 def visualisatie(x, STATIONS, VERBINDINGEN):
-    """"Deze functie maakt een visualisatie voor de lijnvoering."""
+    """Deze functie maakt een visualisatie voor de lijnvoering."""
 
     stations = []
     x_coordinaten = []
@@ -47,7 +47,7 @@ def visualisatie(x, STATIONS, VERBINDINGEN):
         for rij in bestand_lezer:
 
             # Skip eerste regel uit file.
-            if counter ! = 0:
+            if counter != 0:
                 verbinding1.append(rij[0])
                 verbinding2.append(rij[1])
                 lengte.append(rij[2])
@@ -56,7 +56,7 @@ def visualisatie(x, STATIONS, VERBINDINGEN):
 
                 som_totaal = som_totaal + float(rij[2])
 
-            counter + = 1
+            counter += 1
 
     # Plot de hele lijnvoering, maak deze grijs.
     for j in range(0, len(verbinding1)):

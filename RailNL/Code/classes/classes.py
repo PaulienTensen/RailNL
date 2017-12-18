@@ -1,25 +1,25 @@
 # Vak: Heuristieken
-# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
+# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen.
 # Case: Rail NL
 #
-# Dit bestand bestaat uit de class Trein. Het bepaald het traject, houdt het 
-# actuele station bij, vervangt het oude station voor een nieuw station, 
-# houdt de tijd bij en verwijderd het laatste station wanneer de tijd wordt 
+# Dit bestand bestaat uit de class Trein. Het bepaald het traject, houdt het
+# actuele station bij, vervangt het oude station voor een nieuw station,
+# houdt de tijd bij en verwijderd het laatste station wanneer de tijd wordt
 # overschreden.
 #
 
 from random import randint
 
-# Class Trein aanmaken.    
+
 class Trein(object):
     """
-    Deze class (Trein) bevat de publieke methodes onder init: 
-    het traject, het eindstation de tijdsduur en het beginstation. 
-    
-    De class Trein onthoudt het actuele station, bepaalt het volgende spoor, en 
+    Deze class (Trein) bevat de publieke methodes onder init:
+    het traject, het eindstation de tijdsduur en het beginstation.
+
+    De class Trein onthoudt het actuele station, bepaalt het volgende spoor, en
     houdt de tijd bij. Het houdt het spoor bij, en bepaalt welk spoor er wordt
-    genomen. Tot slot wordt het laatste station verwijderd wanneer de tijd is 
-    overschreden. 
+    genomen. Tot slot wordt het laatste station verwijderd wanneer de tijd is
+    overschreden.
     """
 
     def __init__(self, traject, eindstation, beginstation, tijdsduur):
@@ -27,182 +27,136 @@ class Trein(object):
         self.eindstation = eindstation
         self.tijdsduur = tijdsduur
         self.beginstation = beginstation
-     
+
+
     def actuele_station(self,huidig_station):
         """Deze functie vervangt het oude station voor het huidige station."""
-        
+
         self.eindstation = []
         self.eindstation.append(huidig_station)
-      
+
     def volgend_spoor(self, nieuw_station):
         """Deze functie voegt het volgende spoor toe aan traject"""
-        
+
         self.traject.append(nieuw_station)
-       
+
     def tijd(self, tijd):
         """Deze functie houdt de tijd bij."""
-        
+
         self.tijdsduur += tijd
 
     def spoor_toevoegen(self, sporen, huidig_station, beste_optie):
-        """"Deze functie voegt het spoor toe en onthoudt de verbindingen."""
-        
+        """Deze functie voegt het spoor toe en onthoudt de verbindingen."""
+
         h = huidig_station
         b = beste_optie[0]
         verbinding1 = {h:b}
         verbinding2 = {b:h}
-        
+
         # Als verbindingen nog niet in sporen zitten, voeg toe aan sporen.
         if not verbinding1 in sporen and not verbinding2 in sporen:
             sporen.append(verbinding1)
-        
-        
 
-    def opties_randomconstr(self, sporen, graph, trajecten_algemeen, huidig_station):
-        
-        # Lege lijsten om stations aan toe te voegen. 
+
+    def opties_randomconstr(self, sporen, graph, trajecten_algemeen,
+            huidig_station):
+        """
+        Deze functie kiest de sporen door middel van een random algoritme.
+        Het maakt gebruik van de constrains van ons nearest neighbour algoritme.
+        """
+
+        # Lege lijsten om stations aan toe te voegen.
         richtingen = graph[huidig_station]
         stations_niet_aangetikt = []
         stations_wel_aangetikt = []
         terugweg = []
 
-        
-        for row in richtingen:
-            
-            # Als de richting nog niet in trajecten zit voeg deze toe aan 
-            # stations die nog niet bereden zijn. 
-            if row[0][0] not in trajecten_algemeen:
-                stations_niet_aangetikt.append(row)
-            
-            # Als traject niet het begin station is, voeg toe aan terug weg.  
+        for rij in richtingen:
+            # Als de richting nog niet in trajecten zit voeg deze toe aan
+            # stations die nog niet bereden zijn.
+            if rij[0][0] not in trajecten_algemeen:
+                stations_niet_aangetikt.append(rij)
+
+            # Als traject niet het begin station is, voeg toe aan terug weg.
             elif not self.traject == self.beginstation:
-                if row[0][0] == self.traject[-2]:
-                    terugweg.append(row)
-                
-                # Anders voeg station toe die al aangetikt is. 
+                if rij[0][0] == self.traject[-2]:
+                    terugweg.append(rij)
+
+                # Anders voeg station toe die al aangetikt is.
                 else:
-                    stations_wel_aangetikt.append(row)                                        
-            
-            # Als traject wel het begin station is, voeg toe aan al bereden 
+                    stations_wel_aangetikt.append(rij)                 
+
+            # Als traject wel het begin station is, voeg toe aan al bereden
             # stations.
             else:
-                    stations_wel_aangetikt.append(row)
-               
-               
-               
-               
-        # Als niet bereden stations leeg is. 
+                    stations_wel_aangetikt.append(rij)
+
+        # Als niet bereden stations leeg is, kies random station.
         if not stations_niet_aangetikt == []:
-            
-            i = randint(0, len(stations_niet_aangetikt) -1)
-            
-            beste_station = stations_niet_aangetikt[i][0][0]
-            beste_tijd = int(stations_niet_aangetikt[i][1][0])
-            
-        
+            random = randint(0, len(stations_niet_aangetikt) -1)
+
+            beste_station = stations_niet_aangetikt[random][0][0]
+            beste_tijd = int(stations_niet_aangetikt[random][1][0])
+
             trajecten_algemeen.append(beste_station)
-            
-            
+
             return beste_station, beste_tijd
 
-        
-        
-        
-        
-        
-        
-        
-        # Als alle stations zijn bereden. 
-        elif not stations_wel_aangetikt == []: 
-            
-
-        
+        # Als alle stations zijn nog niet zijn bereden.
+        elif not stations_wel_aangetikt == []:
             onbereden_sporen = []
-           
-            for row in stations_wel_aangetikt:
 
-                h = huidig_station
-                b = row[0][0]
-                verbinding1 = {h:b}
-                verbinding2 = {b:h}
-               # print(verbinding1)
-                #print(sporen)
-                
+            for rij in stations_wel_aangetikt:
+                verbinding1 = {huidig_station:rij[0][0]}
+                verbinding2 = {rij[0][0]:huidig_station}
+
                 # Als sporen bij station al zijn bereden.
                 if not verbinding1 in sporen and not verbinding2 in sporen:
-                    onbereden_sporen.append(row)
-                    
-            
-            
-            
-            
+                    onbereden_sporen.append(rij)
+
+            # Als nog niet alle sporen zijn bereden, kies random spoor.
             if not onbereden_sporen == []:
- 
-                i = randint(0, len(onbereden_sporen) -1)
-                
-                beste_station = onbereden_sporen[i][0][0]
-                beste_tijd = int(onbereden_sporen[i][1][0])
-            
+                random = randint(0, len(onbereden_sporen) -1)
+
+                beste_station = onbereden_sporen[random][0][0]
+                beste_tijd = int(onbereden_sporen[random][1][0])
 
                 # Return beste station en kortste tijd.
                 return beste_station, beste_tijd
-          
-       
-       
-       
-       
-       
-       
+
+            # Als alle sporen zijn bereden kies random station.
             else:
-    
-                i = randint(0, len(stations_wel_aangetikt) -1)
+                random = randint(0, len(stations_wel_aangetikt) -1)
 
-                beste_station = stations_wel_aangetikt[i][0][0]
-                beste_tijd = int(stations_wel_aangetikt[i][1][0])
+                beste_station = stations_wel_aangetikt[random][0][0]
+                beste_tijd = int(stations_wel_aangetikt[random][1][0])
 
-                
                 # Return beste station en kortste tijd.
                 return beste_station, beste_tijd
-             
-             
-        else:
 
+        # Als alle stations zijn aangetikt.
+        else:
             beste_station = terugweg[0][0][0]
             beste_tijd = int(terugweg[0][1][0])
 
-            
             # Return beste station en kortste tijd.
-            return beste_station, beste_tijd  
-          
+            return beste_station, beste_tijd
 
 
-
-
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    # Random kiezen, nog te maken!
+    # Random kiezen.
     def opties_random(self, sporen, graph, trajecten_algemeen, huidig_station):
-        
-        
-
+    """Deze functie kiest alle stations en sporen random."""
         richtingen = graph[huidig_station]
-        
+
         i = randint(0, len(richtingen) -1)
         
         beste_station = richtingen[i][0][0]
         beste_tijd = int(richtingen[i][1][0])
-        
-        if not beste_station in trajecten_algemeen:     
-            # Voeg best gekozen station toe aan trajecten.     
+
+        if not beste_station in trajecten_algemeen:  
+            # Voeg best gekozen station toe aan trajecten.
             trajecten_algemeen.append(beste_station)
-        
+
         return beste_station, beste_tijd
         
 

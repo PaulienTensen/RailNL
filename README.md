@@ -76,10 +76,11 @@ oplossing worden gevonden.
 Upperbound Holland = 9919,9619 Onze score = 9919,9604
 Upperbound Nederland = 9819, 8449 Onze score = 9779, 8088
 
-#### Loop verderzoeken in nearest neighbour algoritme (main3.py)
+#### Resultaat main3.py.
 Nederland score: 9462,7487 (10 trajecten). 
 
-#### 
+#### Resultaten main2.py.
+Nederland: 9462,7508 (10 trajecten). 
 
 
 ## Auteurs

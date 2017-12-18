@@ -31,10 +31,10 @@ def kies_start(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
 
             return plek
 
-    # Kies hierna stations die niet zijn aangeraakt.
+    # Ga alle stations af.
     for i in range(lengte_stations):
     
-        # Als station nog niet in trajecten zit, voeg dit station toe.
+        # Als station nog niet in trajecten zit, voeg dit station toe en gebruik als start.
         plek = stations[i]['Station']
         if not plek in trajecten_algemeen:
             trajecten_algemeen.append(plek)
@@ -53,7 +53,7 @@ def kies_start(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
 
             return station1
 
-    # Als alles al is geweest kies willekeurig station.
+    # Als alles al is geweest kies eerste station.
     willekeurig_station = stations[0]['Station']
     return willekeurig_station
 
@@ -66,7 +66,7 @@ def kies_start2(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
     De functie returned station waar op wordt begonnnen (z).
     """
 
-    # Kies eerst de uithoeken wanneer daar nog niet begonnen is.
+    # Kies eerst de uithoeken wanneer indien die nog niet bereden is.
     for plek in uithoeken:
 
         # Als uithoek nog niet bereden is, voeg toe aan trajecten_algemeen.
@@ -75,9 +75,9 @@ def kies_start2(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
 
             return plek
 
-    # Wanneer op alle uithoeken is begonnen, begin dan random.
-    willekeurig_station = randint(0, len(stations) -1)
-    plek = stations[willekeurig_station]['Station']
+    # Wanneer op alle uithoeken bereden zijn, begin dan random.
+    willekeurig = randint(0, len(stations) -1)
+    plek = stations[willekeurig]['Station']
 
     if not plek in trajecten_algemeen:
         trajecten_algemeen.append(plek)
@@ -92,8 +92,8 @@ def kies_start3(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
     """
 
     # Kies random station.
-    willekeurig_station = randint(0, len(stations) -1)
-    plek = stations[willekeurig_station]['Station']
+    willekeurig = randint(0, len(stations) -1)
+    plek = stations[willekeurig]['Station']
 
     # Als station nog niet bereden, voeg toe aan trajecten algemeen.
     if not plek in trajecten_algemeen:

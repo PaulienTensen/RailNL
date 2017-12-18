@@ -19,10 +19,13 @@ def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen, trajecten_alg
     De functie returned de berekende score.
     """
 
+    # Als de oplossing niet alle stations heeft bereden is het geen geldige oplossing,
+    # dus 0 punten.
     if not len(trajecten_algemeen) == len(stations):
         score = 0
         return score
 
+    # Als de oplossing wel geldig is, reken de score uit.
     else:
         aantal_treinen = len(alle_trajecten)
         t = aantal_treinen
@@ -32,13 +35,11 @@ def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen, trajecten_alg
         for i in range(aantal_treinen):
             if len(alle_trajecten[i]) == 1:
                 t = t - 1
-
         gebruikte_sporen = len(sporen)
         min = totale_tijdsduur
 
         # Bereken percentage gebruikte sporen.
         p = gebruikte_sporen / totaal_sporen
-
         score = p*10000 - (t*20 + min/10000)
 
         return score

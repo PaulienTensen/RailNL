@@ -28,8 +28,7 @@ class Trein(object):
         self.tijdsduur = tijdsduur
         self.beginstation = beginstation
 
-
-    def actuele_station(self,huidig_station):
+    def actuele_station(self, huidig_station):
         """Deze functie vervangt het oude station voor het huidige station."""
 
         self.eindstation = []
@@ -50,21 +49,20 @@ class Trein(object):
 
         h = huidig_station
         b = beste_optie[0]
-        verbinding1 = {h:b}
-        verbinding2 = {b:h}
+        verbinding1 = {h: b}
+        verbinding2 = {b: h}
 
         # Als verbindingen nog niet in sporen zitten, voeg toe aan sporen.
         if not verbinding1 in sporen and not verbinding2 in sporen:
             sporen.append(verbinding1)
 
-
     def opties_randomconstr(self, sporen, graph, trajecten_algemeen,
             huidig_station):
         """
         Deze functie kiest de sporen door middel van een random algoritme.
-        
-        Het maakt gebruik van de constrains van ons nearest neighbour algoritme.
-        De functie returned het beste station en de beste tijd.
+
+        Het maakt gebruik van de constrains van ons nearest neighbour
+        algoritme. De functie returned het beste station en de beste tijd.
         """
 
         # Lege lijsten om stations aan toe te voegen.
@@ -86,7 +84,7 @@ class Trein(object):
 
                 # Anders voeg station toe die al aangetikt is.
                 else:
-                    stations_wel_aangetikt.append(rij)                 
+                    stations_wel_aangetikt.append(rij)             
 
             # Als traject wel het begin station is, voeg toe aan al bereden
             # stations.
@@ -109,8 +107,8 @@ class Trein(object):
             onbereden_sporen = []
 
             for rij in stations_wel_aangetikt:
-                verbinding1 = {huidig_station:rij[0][0]}
-                verbinding2 = {rij[0][0]:huidig_station}
+                verbinding1 = {huidig_station: rij[0][0]}
+                verbinding2 = {rij[0][0]: huidig_station}
 
                 # Als sporen bij station al zijn bereden.
                 if not verbinding1 in sporen and not verbinding2 in sporen:
@@ -144,38 +142,36 @@ class Trein(object):
             # Return beste station en kortste tijd.
             return beste_station, beste_tijd
 
-
     # Random kiezen.
     def opties_random(self, sporen, graph, trajecten_algemeen, huidig_station):
         """
         Deze functie kiest alle stations en sporen random.
-        
+
         De functie returned het beste station en beste tijd.
         """
         richtingen = graph[huidig_station]
 
-        rabdom = randint(0, len(richtingen) -1)
-        
+        random = randint(0, len(richtingen) -1)
+
         beste_station = richtingen[random][0][0]
         beste_tijd = int(richtingen[random][1][0])
 
-        if not beste_station in trajecten_algemeen:  
+        if not beste_station in trajecten_algemeen:
 
             # Voeg best gekozen station toe aan trajecten.
             trajecten_algemeen.append(beste_station)
 
         return beste_station, beste_tijd
 
-
     def opties_farest(self, sporen, graph, trajecten_algemeen, huidig_station):
         """
         Deze functie kiest steeds de farest neighbour om heen te gaan.
 
         Als het station nog niet is bereden kies de farest neigbour om naar
-        toe te gaan. Anders die het onbereden station. Vervolgens kies het 
+        toe te gaan. Anders die het onbereden station. Vervolgens kies het
         station met onbereden sporen. Kies tot slot random station.
         De functie returned het beste station en de beste tijd.
-        """ 
+        """
 
         # Lege lijsten om stations aan toe te voegen.
         richtingen = graph[huidig_station]
@@ -197,7 +193,7 @@ class Trein(object):
 
                 # Anders voeg station toe die al aangetikt is.
                 else:
-                    stations_wel_aangetikt.append(rij)                                
+                    stations_wel_aangetikt.append(rij)
 
             # Als traject wel het begin station is, voeg toe aan al bereden
             # stations.
@@ -214,7 +210,7 @@ class Trein(object):
                     beste_tijd = int(rij[1][0])
                     beste_station = rij[0][0]
 
-            # Voeg best gekozen station toe aan trajecten.   
+            # Voeg best gekozen station toe aan trajecten.
             trajecten_algemeen.append(beste_station)
             return beste_station, beste_tijd
 
@@ -229,8 +225,8 @@ class Trein(object):
                 # Huidig station tegenover optie zetten.
                 h = huidig_station
                 b = rij[0][0]
-                verbinding1 = {h:b}
-                verbinding2 = {b:h}
+                verbinding1 = {h: b}
+                verbinding2 = {b: h}
 
                 # Als sporen bij station al zijn bereden.
                 if verbinding1 in sporen or verbinding2 in sporen:
@@ -240,26 +236,26 @@ class Trein(object):
                         beste_tijd = int(rij[1][0])
                         beste_station = rij[0][0]
 
-                # Als spoor nog niet is bereden.      
+                # Als spoor nog niet is bereden.
                 else:
 
                     # Kies beste tijd en station. Return deze.
                     beste_tijd = int(rij[1][0])
-                    beste_station = rij [0][0]
+                    beste_station = rij[0][0]
                     return beste_station, beste_tijd
 
             # Return beste station en kortste tijd.
             return beste_station, beste_tijd
-            
+
         # Als terug de enige optie is ga terug.
         else:
             beste_station = rij[0][0]
-            beste_tijd =  int(rij[1][0])
+            beste_tijd = int(rij[1][0])
             return beste_station, beste_tijd
 
-
-    # Deze functie maakt de beslissing welk spoor er wordt genomen.  
-    def opties_nearest(self, sporen, graph, trajecten_algemeen, huidig_station):
+    # Deze functie maakt de beslissing welk spoor er wordt genomen.
+    def opties_nearest(self, sporen, graph, trajecten_algemeen,
+            huidig_station):
         """
         Deze functie maakt de beslissing welk spoor er wordt genomen.
 
@@ -292,7 +288,7 @@ class Trein(object):
 
                 # Anders voeg station toe die al aangetikt is.
                 else:
-                    stations_wel_aangetikt.append(rij)                                     
+                    stations_wel_aangetikt.append(rij)
 
             # Als traject wel het begin station is, voeg toe aan al bereden
             # stations.
@@ -323,8 +319,8 @@ class Trein(object):
                 # Huidig station tegenover optie zetten.
                 h = huidig_station
                 b = rij[0][0]
-                verbinding1 = {h:b}
-                verbinding2 = {b:h}
+                verbinding1 = {h: b}
+                verbinding2 = {b: h}
 
                 # Als sporen bij station al zijn bereden.
                 if verbinding1 in sporen or verbinding2 in sporen:
@@ -334,10 +330,10 @@ class Trein(object):
                         beste_tijd = int(rij[1][0])
                         beste_station = rij[0][0]
 
-                # Als spoor nog niet is bereden, kies beste tijd en station.     
+                # Als spoor nog niet is bereden, kies beste tijd en station.
                 else:
                     beste_tijd = int(rij[1][0])
-                    beste_station = rij [0][0]
+                    beste_station = rij[0][0]
                     return beste_station, beste_tijd
 
             # Return beste station en kortste tijd.
@@ -346,40 +342,32 @@ class Trein(object):
         # Als terug de enige optie is ga terug.
         else:
             beste_station = rij[0][0]
-            beste_tijd =  int(rij[1][0])
+            beste_tijd = int(rij[1][0])
             return beste_station, beste_tijd
-
 
     def pop(self, trajecten_algemeen, sporen):
         """
         Deze functie verwijderd de laatste verbinding uit sporen.
-        
+
         Als er maar één station in het traject zit, deze niet verwijderen.
         """
-        a = self.traject[-1]
-        b = self.traject[-2]
-        laatste_verbinding = {b:a}
+        traject_min1 = self.traject[-1]
+        traject_min2 = self.traject[-2]
+        laatste_verbinding = {traject_min2: traject_min1}
 
         pop = self.traject.pop()
-         
+
         pop2 = trajecten_algemeen.pop()
-        
-        # Als er maar 1 station in traject is, kun je niet deze niet verwijderen. 
+
+        # Bij maar 1 station in traject, niet verwijderen.
         if not pop == pop2:
             trajecten_algemeen.append(pop2)
-        
-        # Verwijder laatste verbinding uit sporen. 
+
+        # Verwijder laatste verbinding uit sporen.
         if laatste_verbinding == sporen[-1]:
             pop3 = sporen.pop()
-             
-    def verminderen(self, laatste_verbinding):
-        """Deze functie verwijderd tijd van laatste verbinding uit tijdsduur."""
-        
-        self.tijdsduur -= laatste_verbinding[1] 
-        
 
-        
-        
-        
-        
-        
+    def verminderen(self, laatste_verbinding):
+        """Deze functie verwijderd tijd van laatste verbinding."""
+
+        self.tijdsduur -= laatste_verbinding[1]

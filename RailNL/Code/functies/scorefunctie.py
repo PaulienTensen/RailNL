@@ -22,9 +22,7 @@ def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen, trajecten_alg
     if not len(trajecten_algemeen) == len(stations):
         score = 0
         return score
-    
-    
-    
+
     else:
         aantal_treinen = len(alle_trajecten)
         t = aantal_treinen

@@ -23,8 +23,6 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2, stations, verbindingen,
     """
 
     for j in range(HILL):
-    
-        print(j)
 
         alle_trajecten = []
         trajecten_algemeen = []

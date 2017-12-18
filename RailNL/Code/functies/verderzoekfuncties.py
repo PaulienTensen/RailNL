@@ -68,7 +68,7 @@ def spoor_toevoegen(sporen, huidig_station, beste_optie, tijd):
 
 
 def opties_randomconstr(sporen, graph, trajecten_algemeen, huidig_station,
-        eigen_traject):
+                        eigen_traject):
     """Maakt de keuze voor het volgend station."""
 
     # Lege lijsten om stations aan toe te voegen.

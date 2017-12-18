@@ -6,7 +6,8 @@
 #
 
 
-def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen, trajecten_algemeen, stations):
+def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen, 
+          trajecten_algemeen, stations):
     """
     Deze functie berekend een score van de kwaliteit van de lijnvoering.
 
@@ -27,8 +28,8 @@ def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen, trajecten_alg
         aantal_treinen = len(alle_trajecten)
         t = aantal_treinen
 
-        # Als de lengte van alle trajecten 1 is, dus trein is nergens heen gegaan. 
-        # Tel dit trjaect niet mee.
+        # Als de lengte van alle trajecten 1 is, dus trein is nergens heen 
+        # gegaan. Tel dit trjaect niet mee.
         for i in range(aantal_treinen):
             if len(alle_trajecten[i]) == 1:
                 t = t - 1

@@ -64,7 +64,10 @@ uithoeken = inladen.inladen.uithoeken(graph, stations)
 
 
 
-resultaat = algo.hillclimber2.hillclimber2(SCORE, HILL, HILL2, TRAJECTEN, MAX, MAX2, stations, verbindingen, uithoeken, graph, TOTAAL_SPOREN, TOTAAL_STATIONS)
+resultaat = algo.hillclimber2.hillclimber2(SCORE, HILL, HILL2, TRAJECTEN, MAX, 
+                                           MAX2, stations, verbindingen, 
+                                           uithoeken, graph, TOTAAL_SPOREN, 
+                                           TOTAAL_STATIONS)
 
 # Hill climber returnd 4 gegevens. Deze worden weer opgehaald. 
 score = resultaat[0]

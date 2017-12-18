@@ -1,4 +1,4 @@
-# Course: Huristieken
+# Vak: Heuristieken
 # Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
 # Case: Rail NL
 #
@@ -16,9 +16,9 @@ def stations(x):
 
     stations = []
     with open (x) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            stations.append(row)
+        bestand_lezer = csv.DictReader(csvfile)
+        for rij in bestand_lezer:
+            stations.append(rij)
     
     return stations
      
@@ -31,27 +31,27 @@ def verbindingen(y):
 
     verbindingen = []
     with open(y) as csvfile:
-        reader = csv.DictReader(csvfile)
-        for row in reader:
-            verbindingen.append(row)
+        bestand_lezer = csv.DictReader(csvfile)
+        for rij in bestand_lezer:
+            verbindingen.append(rij)
     
     return verbindingen
 
 
 def alle_sporen(stations, verbindingen):
     """ 
-    Deze functie returned een lijst (alle_sporen) met alle stations, bijbehorende 
-    verbindingen en hoelang de verbindigen er over doen.
+    Deze functie returned een lijst (alle_sporen) met alle stations, 
+    bijbehorende verbindingen en hoelang de verbindigen er over doen.
     """
     
-    b = len(stations)
-    a = len(verbindingen)
+    lengte_stations = len(stations)
+    lengte_verbindingen = len(verbindingen)
     alle_sporen = []
      
-    for i in range (b):        
+    for i in range (lengte_stations):        
         sporen = [] 
         
-        for z in range (a):
+        for z in range (lengte_verbindingen):
             stat = []
             tijd = []
             
@@ -60,18 +60,18 @@ def alle_sporen(stations, verbindingen):
             if stations[i]['Station'] == verbindingen[z]['Station1']: 
                 stat.append(verbindingen[z]['Station2'])
                 
-                # Voeg de duur van de verbinding toe aan tijd, en station met 
-                # tijd toe aan sporen.
+                # Voeg de duur van de verbinding toe aan tijd, en voeg station 
+                # met tijd toe aan sporen.
                 tijd.append(verbindingen[z]['Tijd'])
-                u = stat, tijd 
-                sporen.append(u)
+                stat_tijd = stat, tijd 
+                sporen.append(stat_tijd)
             
             if stations[i]['Station'] == verbindingen[z]['Station2']:
                 
                 stat.append(verbindingen[z]['Station1'])
                 tijd.append(verbindingen[z]['Tijd'])
-                u = stat, tijd            
-                sporen.append(u)
+                stat_tijd = stat, tijd            
+                sporen.append(stat_tijd)
        
         alle_sporen.append(sporen)
      
@@ -85,15 +85,15 @@ def graph(stations, alle_sporen):
     """
     
     graph = {}
-    b = len(stations)
+    lengte_stations = len(stations)
     
     # Vul de dict met stations en alle sporen. 
-    for i in range (b):
-        y = {}
-        x= stations[i]['Station']
-        g=alle_sporen[i]
-        y = {x:g}
-        graph.update(y)
+    for i in range (lengte_stations):
+        dict = {}
+        station = stations[i]['Station']
+        spoor = alle_sporen[i]
+        dict = {station:spoor}
+        graph.update(dict)
     
     return graph
     
@@ -104,21 +104,19 @@ def uithoeken(graph, stations):
     en Holland. Deze kunnen worden gebruikt als start station. 
     """
    
-    uithoeken =[] 
+    uithoeken = [] 
     
     # Stel uithoek gelijk aan 2.
     geen_uithoek = 2   
-    b = len(stations)
+    lengte_stations = len(stations)
     
-    for i in range (b):
-        x = stations[i]['Station']
-        connecties = len(graph[x])
+    for i in range (lengte_stations):
+        station = stations[i]['Station']
+        connecties = len(graph[station])
 
         # Als de stations een uithoek is, append aan uithoeken. 
         if connecties < geen_uithoek:
-            uithoeken.append(x)
+            uithoeken.append(station)
            
     return uithoeken
     
-    
-

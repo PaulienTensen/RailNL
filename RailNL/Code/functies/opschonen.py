@@ -1,3 +1,9 @@
+# Course: Heuristieken
+# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
+# Case: Rail NL
+#
+# Deze functie NOG COMMENTEN!
+#
 def opschonen(alle_trajecten, alle_tijdsduur, verbindingen):
     
     trajecten = alle_trajecten

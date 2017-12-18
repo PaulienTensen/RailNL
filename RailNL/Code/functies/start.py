@@ -1,5 +1,5 @@
-# Course: Huristieken
-# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
+# Vak: Heuristieken
+# Namen: Thomas Van Doren, Mattia Sabino Caso, Paulien Tensen. 
 # Case: Rail NL
 #
 # In dit bestand wordt de start bepaald per traject. 
@@ -20,27 +20,25 @@ def kies_start(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
     De functie returned het station waar op wordt 'gestart' (z). 
     """
     
-    b = len(stations)
+    lengte_stations = len(stations)
     
     # Start vanuit de uithoeken. 
     for plek in uithoeken:
     
         if not plek in trajecten_algemeen:
-            z = plek
-            trajecten_algemeen.append(z)
+            trajecten_algemeen.append(plek)
             
-            return z
+            return plek
 
     # Kies hierna stations die niet zijn aangeraakt.
-    for i in range (b):
+    for i in range (lengte_stations):
     
         # Als station nog niet in trajecten zit, voeg dit station toe. 
         plek = stations[i]['Station']
         if not plek in trajecten_algemeen:
-            z = plek
-            trajecten_algemeen.append(z)
+            trajecten_algemeen.append(plek)
             
-            return z
+            return plek
 
     
     # Kies vervolgens voor station die nog onbereden verbindingen heeft. 
@@ -50,15 +48,14 @@ def kies_start(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
         verbinding1 = {station1:station2}
         verbinding2 = {station2:station1}
         
-        # als verbindingen nog niet in sporen zit. 
+        # Als verbindingen nog niet in sporen zit. 
         if not verbinding1 in sporen and not verbinding2 in sporen:
-            z = station1
-            
-            return z
+        
+            return station1
           
    # Als alles al is geweest kies willekeurig station. 
-    z = stations[0]['Station']
-    return z
+    willekeurig_station = stations[0]['Station']
+    return willekeurig_station
     
 
 def kies_start2(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
@@ -69,27 +66,25 @@ def kies_start2(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
     De functie returned station waar op wordt begonnnen (z).
     """
     
-    b = len(stations)
+    #b = len(stations)
     
     # Kies eerst de uithoeken wanneer daar nog niet begonnen is.
     for plek in uithoeken:
         
         # Als uithoek nog niet bereden is, voeg toe aan trajecten_algemeen.
         if not plek in trajecten_algemeen:
-            z = plek
-            trajecten_algemeen.append(z)
+            trajecten_algemeen.append(plek)
 
-            return z
+            return plek
     
     # Wanneer op alle uithoeken is begonnen, begin dan random. 
-    i = randint(0, len(stations) -1)
-    plek = stations[i]['Station']
-    z = plek
+    willekeurig_station = randint(0, len(stations) -1)
+    plek = stations[willekeurig_station]['Station']
     
     if not plek in trajecten_algemeen:
-        trajecten_algemeen.append(z)
+        trajecten_algemeen.append(plek)
     
-    return z
+    return plek
   
 
 def kies_start3(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
@@ -99,16 +94,12 @@ def kies_start3(sporen, verbindingen, uithoeken, trajecten_algemeen, stations):
     """    
         
     # Kies random station. 
-    i = randint(0, len(stations) -1)
-    plek = stations[i]['Station']
-    z = plek
+    willekeurig_station = randint(0, len(stations) -1)
+    plek = stations[willekeurig_station]['Station']
     
     # Als station nog niet bereden, voeg toe aan trajecten algemeen.
     if not plek in trajecten_algemeen:
-        trajecten_algemeen.append(z)
+        trajecten_algemeen.append(plek)
         
-   
-    return z
+    return plek
     
-    
-

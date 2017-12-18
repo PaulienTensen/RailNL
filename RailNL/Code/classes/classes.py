@@ -1,4 +1,4 @@
-# Course: Huristieken
+# Vak: Heuristieken
 # Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
 # Case: Rail NL
 #
@@ -23,7 +23,7 @@ class Trein(object):
     """
 
     def __init__(self, traject, eindstation, beginstation, tijdsduur):
-        self.traject= traject
+        self.traject = traject
         self.eindstation = eindstation
         self.tijdsduur = tijdsduur
         self.beginstation = beginstation

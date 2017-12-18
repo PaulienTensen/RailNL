@@ -1,8 +1,8 @@
-# Course: Huristieken
-# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
+# Course: Heuristieken
+# Namen: Thomas Van Doren, Mattia Sabino Caso, Paulien Tensen. 
 # Case: Rail NL
 #
-#Berekenen van totaal aantal minuten van de lijnvoering.
+# Berekenen van totaal aantal minuten van de lijnvoering.
 #
 
 def minuten(alle_tijdsduur):

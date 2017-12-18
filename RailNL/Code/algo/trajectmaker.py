@@ -1,4 +1,4 @@
-# Course: Huristieken
+# Vak: Heuristieken
 # Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
 # Case: Rail NL
 #
@@ -9,10 +9,8 @@ import classes.classes
 import functies.start
 
 
-
-# Deze functie bepaald het traject. 
-
-def traject_maker(RANGE, MAX, stations, verbindingen, uithoeken, graph, TOTAAL_SPOREN, TOTAAL_STATIONS):
+def traject_maker(RANGE, MAX, stations, verbindingen, uithoeken, graph, \
+        TOTAAL_SPOREN, TOTAAL_STATIONS):
     """
     Deze functie bepaalt welk traject er wordt gereden. 
     
@@ -30,22 +28,23 @@ def traject_maker(RANGE, MAX, stations, verbindingen, uithoeken, graph, TOTAAL_S
         
         # Kies het start station. 
 
-        START = functies.start.kies_start3(sporen, verbindingen, uithoeken, trajecten_algemeen, stations)
+        START = functies.start.kies_start3(sporen, verbindingen, uithoeken, 
+                trajecten_algemeen, stations)
 
-        z = START
-        
-        trein = classes.classes.Trein([START], [START], [z], 0)    
+        trein = classes.classes.Trein([START], [START], [START], 0)    
 
         # Loop door tot traject < 120 minuten. 
         while (trein.tijdsduur < MAX):
             
             # Break als alle sporen zijn bereden en alle stations zijn bereden.
-            if len(sporen) == TOTAAL_SPOREN and len(trajecten_algemeen) == TOTAAL_STATIONS:
+            if len(sporen) == TOTAAL_SPOREN and len(trajecten_algemeen) == \
+                    TOTAAL_STATIONS:
                 break
 
             else:
                 # Beste optie kiezen aan de hand van de mogelijkheden.
-                beste_optie = trein.opties_randomconstr(sporen, graph, trajecten_algemeen, trein.eindstation[0])
+                beste_optie = trein.opties_randomconstr(sporen, graph, 
+                        trajecten_algemeen, trein.eindstation[0])
                 
                 # Spoor toevoegen.
                 trein.spoor_toevoegen(sporen, trein.eindstation[0], beste_optie)
@@ -71,5 +70,4 @@ def traject_maker(RANGE, MAX, stations, verbindingen, uithoeken, graph, TOTAAL_S
         alle_tijdsduur.append(trein.tijdsduur)
 
     return alle_tijdsduur, alle_trajecten, sporen, trajecten_algemeen
-
-    
+ 

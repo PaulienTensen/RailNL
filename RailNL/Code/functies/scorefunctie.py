@@ -1,4 +1,4 @@
-# Course: Huristieken
+# Course: Heuristieken
 # Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
 # Case: Rail NL
 #
@@ -18,14 +18,14 @@ def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen):
     De functie returned de berekende score.
     """
     
-    s = len(alle_trajecten)
-    t = s
+    aantal_treinen = len(alle_trajecten)
+    t = aantal_treinen
     
     # Als de lengte van alle trajecten 1 is, dus trein is nergens heen gegaan. 
     # Tel dit trjaect niet mee. 
-    for i in range(s):
+    for i in range(aantal_treinen):
         if len(alle_trajecten[i]) == 1:
-            t = t-1
+            t = t - 1
      
     gebruikte_sporen = len(sporen)
     min = totale_tijdsduur

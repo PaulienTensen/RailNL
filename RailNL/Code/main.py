@@ -1,8 +1,8 @@
-#Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
-#Vak: Heuristieken. 
-#Case: Rail NL. 
+# Course: Heuristieken
+# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
+# Case: Rail NL 
 #
-#Dit is het main bestand. Run dit bestand door middel van main.py.
+# Dit is het main bestand. Run dit bestand door middel van main.py.
 #
 
 import functies.scorefunctie
@@ -11,7 +11,7 @@ import functies.minuten
 import algo.hillclimber
 import inladen.inladen
 import time
-import visualisatie.visualisatie
+#import visualisatie.visualisatie
 
 
 # Houd de tijd bij. 
@@ -22,7 +22,7 @@ start_time = time.clock()
 
 # AANTAL MINUTEN
 
-HILL = 1000000
+HILL = 1
 
 # Aantal minuten.
 
@@ -116,7 +116,7 @@ print(time.clock() - start_time, "seconden")
 
 #visualisatie.lijnvoeringtest.visualisatie(alle_trajecten, STATIONS, VERBINDINGEN)
 
-visualisatie.visualisatie.visualisatie(alle_trajecten, STATIONS, VERBINDINGEN)
+#visualisatie.visualisatie.visualisatie(alle_trajecten, STATIONS, VERBINDINGEN)
 
 
 

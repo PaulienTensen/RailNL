@@ -10,9 +10,10 @@ import classes.classes
 import functies.scorefunctie
 import functies.minuten
 import functies.opschonen
+import algo.hill_verderzoeken
 
 
-def hillclimber2(score1, HILL, HILL2, RANGE, MAX,\
+def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2,\
         stations, verbindingen, uithoeken, graph, \
         TOTAAL_SPOREN, TOTAAL_STATIONS):
     """
@@ -23,6 +24,8 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX,\
     """
 
     for j in range(HILL):
+    
+        print(j)
 
         alle_trajecten = []
         trajecten_algemeen = []
@@ -83,24 +86,36 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX,\
         # Bekijk de tijdsduur.
         totale_tijdsduur = functies.minuten.minuten(alle_tijdsduur)
 
-        # Bekijk de nieuwe score.
-        score2 = functies.scorefunctie.score(alle_trajecten, totale_tijdsduur,\
-                sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
+        
 
+        score_o = functies.scorefunctie.score(alle_trajecten, totale_tijdsduur, sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
 
+        
+        nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graph, sporen, MAX2, TOTAAL_SPOREN, HILL2, verbindingen, stations)
 
+        score2 = nieuw_traject[2]
+        def_trajecten = nieuw_traject[0]
+        def_tijden = nieuw_traject[1]
+        def_sporen = nieuw_traject[3]
+        def_trajecten_algemeen = nieuw_traject[4]
+        def_totaal_tijd = nieuw_traject[5]
+             
+
+        score = functies.scorefunctie.score(def_trajecten, def_totaal_tijd, def_sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
+
+                
         # Vergelijk de score van de vorige oplossing met de huidige
         # oplossing. Bewaar de beste oplossing.
         if score2 >= score1:
             score1 = score2
-            alle_tijdsduur1 = alle_tijdsduur
-            alle_trajecten1 = alle_trajecten
-            trajecten_algemeen1 = trajecten_algemeen
-            sporen1 = sporen
+            alle_tijdsduur1 = def_tijden
+            alle_trajecten1 = def_trajecten
+            trajecten_algemeen1 = def_trajecten_algemeen
+            sporen1 = def_sporen
 
-            
-            
-            
-            
     return score1, alle_tijdsduur1, alle_trajecten1, sporen1, \
             trajecten_algemeen1
+                
+        
+        
+        

@@ -111,7 +111,7 @@ print(time.clock() - start_time, "seconden")
 
 start_time1 = time.clock()
 
-nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graph, sporen, MAX2, TOTAAL_SPOREN, score, HILL2, verbindingen)
+nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graph, sporen, MAX2, TOTAAL_SPOREN, score, HILL2, verbindingen, stations)
 
 def_score = nieuw_traject[2]
 def_trajecten = nieuw_traject[0]

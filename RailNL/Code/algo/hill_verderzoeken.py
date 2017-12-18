@@ -4,7 +4,7 @@ import functies.minuten
 import copy
 
 
-def verderzoeken(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_algemeen1, graph, sporen1, MAX, TOTAAL_SPOREN, score1, HILL2, verbindingen):
+def verderzoeken(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_algemeen1, graph, sporen1, MAX, TOTAAL_SPOREN, HILL2, verbindingen, stations):
 
     aantal_trajecten = len(alle_trajecten1)
     totaal_tijd1 = functies.minuten.minuten(alle_tijdsduur1)
@@ -32,7 +32,7 @@ def verderzoeken(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_
             
         nieuwe_tijdsduur = copy.deepcopy(alle_tijdsduur[i])
         
-        score_oud = functies.scorefunctie.score(eigen_traject, nieuwe_tijdsduur, sporen, TOTAAL_SPOREN)
+        score_oud = functies.scorefunctie.score(eigen_traject, nieuwe_tijdsduur, sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
         
         sporen1 = copy.deepcopy(sporen)
 
@@ -69,7 +69,7 @@ def verderzoeken(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_
         
         
         
-            score_nieuw = functies.scorefunctie.score(nieuw_eigen_traject, nieuw_nieuw_tijdsduur, eind_sporen, TOTAAL_SPOREN)
+            score_nieuw = functies.scorefunctie.score(nieuw_eigen_traject, nieuw_nieuw_tijdsduur, eind_sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
         
         
             if score_nieuw > score_oud :
@@ -94,7 +94,7 @@ def verderzoeken(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_
     nieuw_alle_tijden = trajecten[1] 
      
     totaal_tijd = functies.minuten.minuten(nieuw_alle_tijden)
-    score = functies.scorefunctie.score(nieuw_alle_trajecten, totaal_tijd, sporen, TOTAAL_SPOREN)
+    score = functies.scorefunctie.score(nieuw_alle_trajecten, totaal_tijd, sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
 
     
     return nieuw_alle_trajecten, nieuw_alle_tijden, score, sporen, trajecten_algemeen, totaal_tijd 

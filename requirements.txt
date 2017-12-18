@@ -1,0 +1,9 @@
+backports-abc==0.5
+bottle==0.12.13
+certifi==2017.11.5
+CProfileV==1.0.7
+pattern==2.6
+singledispatch==3.4.0.3
+six==1.11.0
+tabulate==0.8.2
+tornado==4.5.2

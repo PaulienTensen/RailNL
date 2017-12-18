@@ -12,6 +12,8 @@ Dit document bevat:
 - Upper/lowerbound
 - Toetsingsgrootheid
 
+- requirements.txt: Hierin staan de requirements voor deze case.
+
 De case Rail NL gaat over het maken van de lijnvoering van intercity treinen in 
 Nederland. De case is opgesplitst in twee delen. Allereerst wordt gekeken naar 
 de lijnvoering voor Holland, om dit vervolgens uit te breiden naar de 

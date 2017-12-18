@@ -1,10 +1,10 @@
-# Course: Heuristieken
+# Vak: Heuristieken
 # Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
 # Case: Rail NL 
 #
 # Dit is het main bestand. Run dit bestand door middel van main.py.
+# Dit bestand loopt een nearest neighbor algoritme met random beginstations.
 #
-
 
 import functies.minuten
 import algo.hillclimber
@@ -17,19 +17,13 @@ import visualisatie.visualisatie
 start_time = time.clock()
 
 # Aantal iteraties van de hillclimber.
-
-
-# AANTAL MINUTEN
-
 HILL = 10
 
-# Aantal minuten.
-
+# Aantal max minuten van een traject.
 MAX = 180
 
-
 # Aantal trajecten.
-RANGE = 11
+TRAJECTEN = 11
 
 SCORE = 0
  
@@ -60,7 +54,7 @@ uithoeken = inladen.inladen.uithoeken(graph, stations)
 
 
 
-resultaat = algo.hillclimber.hillclimber(SCORE, HILL, RANGE, MAX, stations, verbindingen, uithoeken, graph, TOTAAL_SPOREN, TOTAAL_STATIONS)
+resultaat = algo.hillclimber.hillclimber(SCORE, HILL, TRAJECTEN, MAX, stations, verbindingen, uithoeken, graph, TOTAAL_SPOREN, TOTAAL_STATIONS)
 
 # Hill climber returnd 4 gegevens. Deze worden weer opgehaald. 
 score = resultaat[0]
@@ -75,7 +69,7 @@ totale_tijdsduur = (functies.minuten.minuten(alle_tijdsduur))
 
 # Deze print statements nog verwijderen. 
 print("TRAJECTEN:")
-for i in range (len(alle_trajecten)):
+for i in TRAJECTEN (len(alle_trajecten)):
     print()
     print("TRAJECT", i)
     print(alle_trajecten[i])

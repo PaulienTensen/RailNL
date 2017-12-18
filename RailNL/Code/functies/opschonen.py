@@ -1,14 +1,15 @@
-# Course: Heuristieken
+# Vak: Heuristieken
 # Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen.
 # Case: Rail NL
 #
-# Deze functie NOG COMMENTEN!
+# Dubbele verbindingen aan het einde van een traject 
+# verwijderen.
 #
 
 
 def opschonen(alle_trajecten, alle_tijdsduur, verbindingen):
     """
-    Deze functie returned de trajecten en de nieuwe tijd.
+    Deze functie verwijdert de overbodige verbindingen in een traject.
     """
 
     trajecten = alle_trajecten
@@ -16,6 +17,7 @@ def opschonen(alle_trajecten, alle_tijdsduur, verbindingen):
     alle_sporen = []
     nieuwe_tijd = []
 
+    # Slaat alle sporen 2x op in de map alle_sporen.
     for traject in trajecten:
         for i in range(len(traject) - 1):
 
@@ -26,8 +28,10 @@ def opschonen(alle_trajecten, alle_tijdsduur, verbindingen):
             alle_sporen.append(verbinding1)
             alle_sporen.append(verbinding2)
 
+    #Checkt alle trajecten van achter naar voren en als 
+    #de verbinding dubbel is wordt verbinding verwijdert.
+    #Dit gaat door totdat een verbinding niet dubbel is.
     counter = -1
-
     for traject in trajecten:
         counter = counter + 1
         tijd = int(tijdsduren[counter])

@@ -1,8 +1,8 @@
-#Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
-#Vak: Heuristieken. 
-#Case: Rail NL. 
+# Vak: Heuristieken
+# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
+# Case: Rail NL 
 #
-#Dit is het main bestand. Run dit bestand door middel van main.py.
+# Dit is het main bestand. Run dit bestand door middel van main2.py.
 #
 
 

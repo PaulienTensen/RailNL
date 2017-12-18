@@ -183,82 +183,78 @@ class Trein(object):
         stations_wel_aangetikt = []
         terugweg = []
 
-        for row in richtingen:
+        for rij in richtingen:
 
             # Als de richting nog niet in trajecten zit voeg deze toe aan
             # stations die nog niet bereden zijn.
-            if row[0][0] not in trajecten_algemeen:
-                stations_niet_aangetikt.append(row)
+            if rij[0][0] not in trajecten_algemeen:
+                stations_niet_aangetikt.append(rij)
 
             # Als traject niet het begin station is, voeg toe aan terug weg.
             elif not self.traject == self.beginstation:
-                if row[0][0] == self.traject[-2]:
-                    terugweg.append(row)
+                if rij[0][0] == self.traject[-2]:
+                    terugweg.append(rij)
 
                 # Anders voeg station toe die al aangetikt is.
                 else:
-                    stations_wel_aangetikt.append(row)                                
+                    stations_wel_aangetikt.append(rij)                                
 
             # Als traject wel het begin station is, voeg toe aan al bereden
             # stations.
             else:
-                    stations_wel_aangetikt.append(row)
+                    stations_wel_aangetikt.append(rij)
 
         # Als niet bereden stations leeg is.
         if not stations_niet_aangetikt == []:
             beste_tijd = 0
-            
-            # Kies het station met de laagste tijd. 
-            for row in stations_niet_aangetikt: 
-                if int(row[1][0]) >= beste_tijd:
-                    beste_tijd = int(row[1][0])
-                    beste_station = row[0][0] 
-    
-                
 
-            # Voeg best gekozen station toe aan trajecten.     
+            # Kies het station met de laagste tijd.
+            for rij in stations_niet_aangetikt:
+                if int(rij[1][0]) >= beste_tijd:
+                    beste_tijd = int(rij[1][0])
+                    beste_station = rij[0][0]
+
+            # Voeg best gekozen station toe aan trajecten.   
             trajecten_algemeen.append(beste_station)
             return beste_station, beste_tijd
-        
-        # Als alle stations zijn bereden. 
-        elif not stations_wel_aangetikt == []: 
-            
+
+        # Als alle stations zijn bereden.
+        elif not stations_wel_aangetikt == []:
+
             beste_tijd = 0
-            
-            
-            
-            # Manier om sporen te checken. 
-            for row in stations_wel_aangetikt:
-                
-                # Huidig station tegenover optie zetten. 
+
+            # Manier om sporen te checken.
+            for rij in stations_wel_aangetikt:
+
+                # Huidig station tegenover optie zetten.
                 h = huidig_station
-                b = row[0][0]
+                b = rij[0][0]
                 verbinding1 = {h:b}
                 verbinding2 = {b:h}
 
                 # Als sporen bij station al zijn bereden.
                 if verbinding1 in sporen or verbinding2 in sporen:
-                    
-                    # Kies spoor met laagste tijd. 
-                    if int(row[1][0]) >= beste_tijd:
-                        beste_tijd = int(row[1][0])
-                        beste_station = row[0][0] 
 
-                # Als spoor nog niet is bereden.         
+                    # Kies spoor met laagste tijd.
+                    if int(rij[1][0]) >= beste_tijd:
+                        beste_tijd = int(rij[1][0])
+                        beste_station = rij[0][0]
+
+                # Als spoor nog niet is bereden.      
                 else:
-                    
+
                     # Kies beste tijd en station. Return deze.
-                    beste_tijd = int(row[1][0])
-                    beste_station = row [0][0]
+                    beste_tijd = int(rij[1][0])
+                    beste_station = rij [0][0]
                     return beste_station, beste_tijd
-            
+
             # Return beste station en kortste tijd.
             return beste_station, beste_tijd
             
         # Als terug de enige optie is ga terug.
-        else: 
-            beste_station = row[0][0]
-            beste_tijd =  int(row[1][0])
+        else:
+            beste_station = rij[0][0]
+            beste_tijd =  int(rij[1][0])
             return beste_station, beste_tijd
  
     

@@ -1,4 +1,4 @@
-import functies.hill2
+import functies.verderzoekfuncties
 import functies.scorefunctie
 import functies.minuten
 import copy
@@ -27,8 +27,6 @@ def verderzoeken(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_
     
     
     for i in range(aantal_trajecten):
-    
-        
         
         eigen_traject = copy.deepcopy(alle_trajecten2[i])
             
@@ -49,21 +47,21 @@ def verderzoeken(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_
             
             while (nieuw_nieuw_tijdsduur < MAX):
             
-                beste_optie = functies.hill2.opties_randomconstr(eind_sporen, graph, trajecten_algemeen, begin_station, nieuw_eigen_traject)
+                beste_optie = functies.verderzoekfuncties.opties_randomconstr(eind_sporen, graph, trajecten_algemeen, begin_station, nieuw_eigen_traject)
                 
                 nieuw_nieuw_tijdsduur = nieuw_nieuw_tijdsduur + beste_optie[1]
                 
-                eind_sporen = functies.hill2.spoor_toevoegen(eind_sporen, begin_station, beste_optie[0], nieuw_nieuw_tijdsduur)    
+                eind_sporen = functies.verderzoekfuncties.spoor_toevoegen(eind_sporen, begin_station, beste_optie[0], nieuw_nieuw_tijdsduur)    
                 
-                begin_station = functies.hill2.actuele_station(beste_optie[0])
+                begin_station = functies.verderzoekfuncties.actuele_station(beste_optie[0])
                 
-                functies.hill2.volgend_spoor(beste_optie[0], nieuw_eigen_traject)
+                functies.verderzoekfuncties.volgend_spoor(beste_optie[0], nieuw_eigen_traject)
 
                 
             if nieuw_nieuw_tijdsduur > MAX:
                 
 
-                functies.hill2.pop(trajecten_algemeen, trajecten_algemeen1, eind_sporen, nieuw_eigen_traject)
+                functies.verderzoekfuncties.pop(trajecten_algemeen, trajecten_algemeen1, eind_sporen, nieuw_eigen_traject)
 
                 nieuw_nieuw_tijdsduur = nieuw_nieuw_tijdsduur - beste_optie[1]
 

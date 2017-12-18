@@ -12,7 +12,7 @@ import functies.minuten
 import functies.opschonen
 
 
-def hillclimber(score1, HILL, RANGE, MAX,\
+def hillclimber2(score1, HILL, HILL2, RANGE, MAX,\
         stations, verbindingen, uithoeken, graph, \
         TOTAAL_SPOREN, TOTAAL_STATIONS):
     """
@@ -87,6 +87,8 @@ def hillclimber(score1, HILL, RANGE, MAX,\
         score2 = functies.scorefunctie.score(alle_trajecten, totale_tijdsduur,\
                 sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
 
+
+
         # Vergelijk de score van de vorige oplossing met de huidige
         # oplossing. Bewaar de beste oplossing.
         if score2 >= score1:
@@ -96,5 +98,9 @@ def hillclimber(score1, HILL, RANGE, MAX,\
             trajecten_algemeen1 = trajecten_algemeen
             sporen1 = sporen
 
+            
+            
+            
+            
     return score1, alle_tijdsduur1, alle_trajecten1, sporen1, \
             trajecten_algemeen1

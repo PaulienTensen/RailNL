@@ -6,7 +6,7 @@
 #
 
 
-def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen):
+def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen, trajecten_algemeen, stations):
     """
     Deze functie berekend een score van de kwaliteit van de lijnvoering.
 
@@ -19,21 +19,28 @@ def score(alle_trajecten, totale_tijdsduur, sporen, totaal_sporen):
     De functie returned de berekende score.
     """
 
-    aantal_treinen = len(alle_trajecten)
-    t = aantal_treinen
+    if not len(trajecten_algemeen) == len(stations):
+        score = 0
+        return score
+    
+    
+    
+    else:
+        aantal_treinen = len(alle_trajecten)
+        t = aantal_treinen
 
-    # Als de lengte van alle trajecten 1 is, dus trein is nergens heen gegaan. 
-    # Tel dit trjaect niet mee.
-    for i in range(aantal_treinen):
-        if len(alle_trajecten[i]) == 1:
-            t = t - 1
+        # Als de lengte van alle trajecten 1 is, dus trein is nergens heen gegaan. 
+        # Tel dit trjaect niet mee.
+        for i in range(aantal_treinen):
+            if len(alle_trajecten[i]) == 1:
+                t = t - 1
 
-    gebruikte_sporen = len(sporen)
-    min = totale_tijdsduur
+        gebruikte_sporen = len(sporen)
+        min = totale_tijdsduur
 
-    # Bereken percentage gebruikte sporen.
-    p = gebruikte_sporen / totaal_sporen
+        # Bereken percentage gebruikte sporen.
+        p = gebruikte_sporen / totaal_sporen
 
-    score = p*10000 - (t*20 + min/10000)
+        score = p*10000 - (t*20 + min/10000)
 
-    return score
+        return score

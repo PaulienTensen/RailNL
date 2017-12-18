@@ -85,13 +85,6 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2, stations, verbindingen,
         # Bekijk de tijdsduur.
         totale_tijdsduur = functies.minuten.minuten(alle_tijdsduur)
 
-        
-
-        score_o = functies.scorefunctie.score(alle_trajecten, totale_tijdsduur, 
-                                              sporen, TOTAAL_SPOREN, 
-                                              trajecten_algemeen, stations)
-
-        
         nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, 
                         alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, 
                         graph, sporen, MAX2, TOTAAL_SPOREN, HILL2, 
@@ -103,13 +96,7 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2, stations, verbindingen,
         def_sporen = nieuw_traject[3]
         def_trajecten_algemeen = nieuw_traject[4]
         def_totaal_tijd = nieuw_traject[5]
-             
 
-        score = functies.scorefunctie.score(def_trajecten, def_totaal_tijd, 
-                                            def_sporen, TOTAAL_SPOREN, 
-                                            trajecten_algemeen, stations)
-
-                
         # Vergelijk de score van de vorige oplossing met de huidige
         # oplossing. Bewaar de beste oplossing.
         if score2 >= score1:

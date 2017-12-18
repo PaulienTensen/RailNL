@@ -81,11 +81,11 @@ def alle_sporen(stations, verbindingen):
 
 def graaf(stations, alle_sporen):
     """ 
-    Deze functie returned een dict (graph) met daarin alle stations en 
+    Deze functie returned een dict (graaf) met daarin alle stations en 
     sporen.
     """
 
-    graph = {}
+    graaf = {}
     lengte_stations = len(stations)
 
     # Vul de dict met stations en alle sporen. 
@@ -94,12 +94,12 @@ def graaf(stations, alle_sporen):
         station = stations[i]['Station']
         spoor = alle_sporen[i]
         dict = {station: spoor}
-        graph.update(dict)
+        graaf.update(dict)
 
-    return graph
+    return graaf
 
 
-def uithoeken(graph, stations):
+def uithoeken(graaf, stations):
     """
     Deze functie returned een lijst (uithoeken) met alle uithoeken van 
     Nederland en Holland. Deze kunnen worden gebruikt als start station. 
@@ -113,7 +113,7 @@ def uithoeken(graph, stations):
 
     for i in range (lengte_stations):
         station = stations[i]['Station']
-        connecties = len(graph[station])
+        connecties = len(graaf[station])
 
         # Als de stations een uithoek is, append aan uithoeken. 
         if connecties < geen_uithoek:

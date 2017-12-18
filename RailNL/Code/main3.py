@@ -16,10 +16,10 @@ import visualisatie.visualisatie
 start_time = time.clock()
 
 # Aantal iteraties Nearest neighbor loop.
-HILL = 10
+HILL = 10000
 
 # Aantal iteraties verderzoekalgoritme.
-HILL2 = 100
+HILL2 = 30
 
 # Max aantal minuten per traject voor eerste algoritme.
 MAX = 180

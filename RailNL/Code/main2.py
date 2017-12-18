@@ -17,10 +17,10 @@ import algo.hill_verderzoeken
 start_time = time.clock()
 
 # Aantal iteraties Nearest neighbor loop.
-HILL = 100
+HILL = 100000
 
 # Aantal iteraties verderzoekalgoritme.
-HILL2 = 100
+HILL2 = 1000
 
 # Max aantal minuten per traject voor eerste algoritme.
 MAX = 180
@@ -30,7 +30,7 @@ MAX2 = 180
 SCORE = 0
 
 # Aantal trajecten.
-TRAJECTEN = 10
+TRAJECTEN = 11
 
 # Te gebruiken CSV's.
 STATIONS = 'Data/StationsNationaal.csv'

@@ -5,7 +5,7 @@
 # Dit is het main bestand. Run dit bestand door middel van main.py.
 #
 
-import functies.scorefunctie
+
 import functies.minuten
 import algo.hillclimber
 import inladen.inladen

@@ -28,9 +28,9 @@ def opschonen(alle_trajecten, alle_tijdsduur, verbindingen):
             alle_sporen.append(verbinding1)
             alle_sporen.append(verbinding2)
 
-    #Checkt alle trajecten van achter naar voren en als 
-    #de verbinding dubbel is wordt verbinding verwijdert.
-    #Dit gaat door totdat een verbinding niet dubbel is.
+    # Checkt alle trajecten van achter naar voren en als 
+    # de verbinding dubbel is wordt verbinding verwijdert.
+    # Dit gaat door totdat een verbinding niet dubbel is.
     counter = -1
     for traject in trajecten:
         counter = counter + 1

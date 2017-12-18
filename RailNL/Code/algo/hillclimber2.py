@@ -13,9 +13,8 @@ import functies.opschonen
 import algo.hill_verderzoeken
 
 
-def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2,\
-        stations, verbindingen, uithoeken, graph, \
-        TOTAAL_SPOREN, TOTAAL_STATIONS):
+def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2, stations, verbindingen, 
+                 uithoeken, graph, TOTAAL_SPOREN, TOTAAL_STATIONS):
     """
     Deze functie implementeert het hill climber algoritme.
 
@@ -36,7 +35,7 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2,\
 
             # Kies de beginpunten van het traject.
             START = functies.start.kies_start3(sporen, verbindingen, uithoeken,
-                    trajecten_algemeen, stations)
+                                               trajecten_algemeen, stations)
             trein = classes.classes.Trein([START], [START], [START], 0)
 
             # While loop gaat door tot traject kleiner of gelijk is dan 180.
@@ -54,7 +53,7 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2,\
 
                     # Spoor toevoegen.
                     trein.spoor_toevoegen(sporen, trein.eindstation[0],
-                            beste_optie)
+                                          beste_optie)
  
                     # Trein verplaatsen naar volgend spoor.
                     trein.volgend_spoor(beste_optie[0])
@@ -78,7 +77,7 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2,\
 
         # Schoon de trajecten op.
         trajecten = functies.opschonen.opschonen(alle_trajecten,
-                alle_tijdsduur, verbindingen)
+                                                 alle_tijdsduur, verbindingen)
 
         alle_trajecten = trajecten[0]
         alle_tijdsduur = trajecten[1]
@@ -88,10 +87,15 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2,\
 
         
 
-        score_o = functies.scorefunctie.score(alle_trajecten, totale_tijdsduur, sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
+        score_o = functies.scorefunctie.score(alle_trajecten, totale_tijdsduur, 
+                                              sporen, TOTAAL_SPOREN, 
+                                              trajecten_algemeen, stations)
 
         
-        nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graph, sporen, MAX2, TOTAAL_SPOREN, HILL2, verbindingen, stations)
+        nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, 
+                        alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, 
+                        graph, sporen, MAX2, TOTAAL_SPOREN, HILL2, 
+                        verbindingen, stations)
 
         score2 = nieuw_traject[2]
         def_trajecten = nieuw_traject[0]
@@ -101,7 +105,9 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2,\
         def_totaal_tijd = nieuw_traject[5]
              
 
-        score = functies.scorefunctie.score(def_trajecten, def_totaal_tijd, def_sporen, TOTAAL_SPOREN, trajecten_algemeen, stations)
+        score = functies.scorefunctie.score(def_trajecten, def_totaal_tijd, 
+                                            def_sporen, TOTAAL_SPOREN, 
+                                            trajecten_algemeen, stations)
 
                 
         # Vergelijk de score van de vorige oplossing met de huidige
@@ -115,7 +121,4 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2,\
 
     return score1, alle_tijdsduur1, alle_trajecten1, sporen1, \
             trajecten_algemeen1
-                
-        
-        
         

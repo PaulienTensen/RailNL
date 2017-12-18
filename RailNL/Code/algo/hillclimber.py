@@ -45,7 +45,7 @@ def hillclimber(score1, alle_trajecten1, alle_tijdsduur1, HILL, RANGE, MAX,\
 
                 else:
                     # Beste optie kiezen aan de hand van de mogelijkheden.
-                    beste_optie = trein.opties_randomconstr(sporen, graph,\
+                    beste_optie = trein.opties_nearest(sporen, graph,\
                             trajecten_algemeen, trein.eindstation[0])
                     
                     # Spoor toevoegen.

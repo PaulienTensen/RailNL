@@ -11,7 +11,7 @@ import functies.minuten
 import algo.hillclimber
 import inladen.inladen
 import time
-import visualisatie.lijnvoeringtest
+import visualisatie.visualisatie
 
 # Houd de tijd bij. 
 start_time = time.clock()
@@ -21,13 +21,13 @@ start_time = time.clock()
 
 # AANTAL MINUTEN
 
-HILL = 1000000
+HILL = 10
 
 # Aantal minuten.
-MAX = 180
+MAX = 0
 
 # Aantal trajecten.
-RANGE = 11
+RANGE = 10
  
 # Te gebruiken CSV's. 
 STATIONS = 'Data/StationsNationaal.csv'
@@ -111,7 +111,7 @@ print()
 print(time.clock() - start_time, "seconden")
 
 
-visualisatie.lijnvoeringtest.visualisatie(alle_trajecten, STATIONS, VERBINDINGEN)
+visualisatie.visualisatie.visualisatie(alle_trajecten, STATIONS, VERBINDINGEN)
 
 
 

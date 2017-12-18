@@ -20,6 +20,7 @@ def pop(trajecten_algemeen, oud_trajecten_algemeen, sporen, traject):
         a = traject[-1]
         b = traject[-2]
         laatste_verbinding = {b:a}
+        laatste_verbinding2 = {a:b}
         
         pop = traject.pop() 
          
@@ -41,7 +42,7 @@ def pop(trajecten_algemeen, oud_trajecten_algemeen, sporen, traject):
                 trajecten_algemeen.append(pop2)
         
         # Verwijder laatste verbinding uit sporen. 
-        if laatste_verbinding == sporen[-1]:
+        if laatste_verbinding == sporen[-1] or laatste_verbinding2 == sporen[-1]:
             pop3 = sporen.pop()
 
 def spoor_toevoegen(sporen, huidig_station, beste_optie, tijd):

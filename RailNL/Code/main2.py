@@ -1,6 +1,6 @@
 # Vak: Heuristieken
-# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen. 
-# Case: Rail NL 
+# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen.
+# Case: Rail NL
 #
 # Dit is het main bestand. Run dit bestand door middel van main2.py.
 #
@@ -13,7 +13,7 @@ import visualisatie.visualisatie
 import algo.hill_verderzoeken
 
 
-# Houd de tijd bij. 
+# Houd de tijd bij.
 start_time = time.clock()
 
 # Aantal iteraties Nearest neighbor loop.
@@ -31,34 +31,36 @@ SCORE = 0
 
 # Aantal trajecten.
 TRAJECTEN = 10
- 
-# Te gebruiken CSV's. 
+
+# Te gebruiken CSV's.
 STATIONS = 'Data/StationsNationaal.csv'
-VERBINDINGEN = 'Data/ConnectiesNationaal.csv' 
+VERBINDINGEN = 'Data/ConnectiesNationaal.csv'
 
 # Pak de gebruikte lists.
 stations = inladen.inladen.stations(STATIONS)
 TOTAAL_STATIONS = len(stations)
 
-# Laad de verbindingen in. 
+# Laad de verbindingen in.
 verbindingen = inladen.inladen.verbindingen(VERBINDINGEN)
 
-# Pak het totaal aantal sporen. 
+# Pak het totaal aantal sporen.
 TOTAAL_SPOREN = len(verbindingen)
 
-# Pak alle sporen. 
+# Pak alle sporen.
 alle_sporen = inladen.inladen.alle_sporen(stations, verbindingen)
 
-# Laad graaf in. 
+# Laad graaf in.
 graaf = inladen.inladen.graaf(stations, alle_sporen)
 
-# Pak alle uithoeken. 
+# Pak alle uithoeken.
 uithoeken = inladen.inladen.uithoeken(graaf, stations)
 
 # Pas de Nearest Neighbor hillclimber toe.
-resultaat = algo.hillclimber.hillclimber(SCORE, HILL, TRAJECTEN, MAX, stations, verbindingen, uithoeken, graaf, TOTAAL_SPOREN, TOTAAL_STATIONS)
+resultaat = algo.hillclimber.hillclimber(SCORE, HILL, TRAJECTEN, MAX, stations,
+                                         verbindingen, uithoeken, graaf,
+                                         TOTAAL_SPOREN, TOTAAL_STATIONS)
 
-# Hill climber returnd 4 gegevens. Deze worden weer opgehaald. 
+# Hill climber returnd 4 gegevens. Deze worden weer opgehaald.
 score = resultaat[0]
 alle_tijdsduur = resultaat[1]
 alle_trajecten = resultaat[2]
@@ -86,8 +88,11 @@ print(time.clock() - start_time, "seconden")
 
 start_time1 = time.clock()
 
-# Runt de verderzoek hillclimber algoritme aan de hand van de beste oplossing van de Nearest Neighbor Algoritme.
-nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graaf, sporen, MAX2, TOTAAL_SPOREN, HILL2, verbindingen, stations)
+# Runt de verderzoek hillclimber algoritme aan de hand van de beste
+# oplossing van de Nearest Neighbor Algoritme.
+nieuw_traject = algo.hill_verderzoeken.verderzoeken(alle_trajecten,
+                alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graaf,
+                sporen, MAX2, TOTAAL_SPOREN, HILL2, verbindingen, stations)
 
 # Slaat uitkomsten op.
 def_score = nieuw_traject[2]

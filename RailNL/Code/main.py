@@ -44,18 +44,6 @@ TOTAAL_SPOREN = len(verbindingen)
 # Pak alle sporen.
 alle_sporen = inladen.inladen.alle_sporen(stations, verbindingen)
 
-<<<<<<< HEAD
-# Laad graph in.
-graph = inladen.inladen.graph(stations, alle_sporen)
-
-# Pak alle uithoeken.
-uithoeken = inladen.inladen.uithoeken(graph, stations)
-
-# Functie om de beste resultaat van de hillclimber te verkrijgen.
-resultaat = algo.hillclimber.hillclimber(SCORE, HILL, TRAJECTEN, MAX, stations,
-                                         verbindingen, uithoeken, graph,
-                                         TOTAAL_SPOREN, TOTAAL_STATIONS)
-=======
 # Laad graaf in. 
 graaf = inladen.inladen.graaf(stations, alle_sporen)
 
@@ -63,8 +51,9 @@ graaf = inladen.inladen.graaf(stations, alle_sporen)
 uithoeken = inladen.inladen.uithoeken(graaf, stations)
 
 # Functie om de beste resultaat van de hillclimber te verkrijgen.
-resultaat = algo.hillclimber.hillclimber(SCORE, HILL, TRAJECTEN, MAX, stations, verbindingen, uithoeken, graaf, TOTAAL_SPOREN, TOTAAL_STATIONS)
->>>>>>> 55110c7d44074ed27e75ca93903598af205737ac
+resultaat = algo.hillclimber.hillclimber(SCORE, HILL, TRAJECTEN, MAX, stations,
+                                         verbindingen, uithoeken, graph,
+                                         TOTAAL_SPOREN, TOTAAL_STATIONS)
 
 # Hill climber returnd 4 gegevens. Deze worden weer opgehaald.
 score = resultaat[0]

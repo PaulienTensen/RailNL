@@ -119,9 +119,6 @@ def hillclimber2(score1, HILL, HILL2, RANGE, MAX, MAX2, stations, verbindingen,
             trajecten_algemeen1 = def_trajecten_algemeen
             sporen1 = def_sporen
 
-    return score1, alle_tijdsduur1, alle_trajecten1, sporen1, 
+    return score1, alle_tijdsduur1, alle_trajecten1, sporen1, \
             trajecten_algemeen1
-                
-        
-        
         

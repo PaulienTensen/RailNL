@@ -79,7 +79,7 @@ def alle_sporen(stations, verbindingen):
     return alle_sporen 
 
 
-def graph(stations, alle_sporen):
+def graaf(stations, alle_sporen):
     """ 
     Deze functie returned een dict (graph) met daarin alle stations en 
     sporen.

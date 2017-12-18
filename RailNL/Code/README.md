@@ -7,8 +7,7 @@ Deze map bevat:
 - functies: Hier staan alle functies die in het bestand aangeroepen worden.
 - inladen: Hiermee worden de csv bestanden ingeladen. 
 - visualisatie: Hiermee wordt alles gevisualiseerd.
-- test.png: Autmatisch gegenereerde afbeelding (door main.py en test.py) van de lijnvoering.
-- test.py: Testbestand identiek aan main.py
+
 - main.py: Hillclimber aan de hand van nearest neighbour, met random begin stations.
 - main2.py: De beste oplossing uit nearest neighbour 'hillclimber' met random begin stations, wordt in een verderzoek algoritme gestopt. 
 - main3.py: Tijdens het hillclimben van de nearest neighbour wordt elke oplossing in het verderzoek algoritme gestopt, en vergeleken. 

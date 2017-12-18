@@ -12,9 +12,9 @@ import functies.minuten
 import functies.opschonen
 
 
-def hillclimber(score1, alle_trajecten1, alle_tijdsduur1, HILL, RANGE, MAX,\
-        stations, verbindingen, uithoeken, graph, trajecten_algemeen1, \
-        sporen1, TOTAAL_SPOREN, TOTAAL_STATIONS):
+def hillclimber(score1, HILL, RANGE, MAX,\
+        stations, verbindingen, uithoeken, graph, \
+        TOTAAL_SPOREN, TOTAAL_STATIONS):
     """
     Deze functie implementeert het hill climber algoritme.
 

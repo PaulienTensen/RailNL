@@ -65,7 +65,7 @@ als de bijbehorende python bestanden.
 Deze case is gemaakt met behulp van Python 3.6.
 
 #### Runnen:
-python main.py
+Om naar de code te gaan: -> RailNL -> Code -> Lees de readme. 
 
 ### Probleem type
 Constrained optimalization problem (COP). Hierbij moet een zo goed mogelijke 

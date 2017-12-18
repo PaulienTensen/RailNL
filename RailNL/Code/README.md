@@ -25,3 +25,8 @@ Hoe pas je de code aan?
 * HILL) staat voor aantal keer dat het nearest neighbour algoritme wordt gerund. 
 * MAX) dit staat voor het aantal maximale minuten per traject. 
 * TRAJECTEN) Dit staat voor het aantal trajecten dat je je lijnvoering wilt hebben. 
+
+Toevoeging met aanpassing code (main2.py, main3.py):
+* HILL2) staat voor aantal iteraties van het verderzoek algortime. 
+* MAX2) staat voor het maximaal aantal minuten dat het traject mag duren. 
+We hebben 2 MAX'en zodat de flexibelheid bestaat om de nearest neighbour tot een lager aantal minuten per traject te laten lopen, en MAX2 op 180 te laten. Het verder zoek algoritme kan zo naar meerdere kanten kijken en heeft meer opties om te verbeteren. 

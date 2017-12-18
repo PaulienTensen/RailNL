@@ -23,9 +23,9 @@ start_time = time.clock()
 
 # AANTAL MINUTEN
 
-HILL = 1000
+HILL = 200000
 
-HILL2 = 1000
+HILL2 = 500000
 
 # Aantal minuten.
 
@@ -113,6 +113,11 @@ print()
 
 print(time.clock() - start_time, "seconden")
 
+
+#visualisatie.visualisatie.visualisatie(alle_trajecten, STATIONS, VERBINDINGEN)
+
+
+
 start_time1 = time.clock()
 
 nieuw_traject = algo.hillclimber2.hillclimber2(alle_trajecten, alle_tijdsduur, totale_tijdsduur, trajecten_algemeen, graph, sporen, MAX, TOTAAL_SPOREN, score, HILL2, verbindingen)
@@ -156,7 +161,7 @@ print(time.clock() - start_time1, "seconden")
 
 
 
-visualisatie.visualisatie.visualisatie(nieuw_traject[0], STATIONS, VERBINDINGEN)
+visualisatie.visualisatie.visualisatie(def_trajecten, STATIONS, VERBINDINGEN)
 
 
 

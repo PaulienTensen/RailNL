@@ -1,0 +1,8 @@
+## Externe libaries
+
+* time
+* numpy
+* matplotlib.pyplot 
+* csv
+* copy
+* random 

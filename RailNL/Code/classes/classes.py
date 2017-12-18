@@ -28,17 +28,20 @@ class Trein(object):
         self.tijdsduur = tijdsduur
         self.beginstation = beginstation
 
+        
     def actuele_station(self, huidig_station):
         """Deze functie vervangt het oude station voor het huidige station."""
 
         self.eindstation = []
         self.eindstation.append(huidig_station)
 
+        
     def volgend_spoor(self, nieuw_station):
         """Deze functie voegt het volgende spoor toe aan traject"""
 
         self.traject.append(nieuw_station)
 
+        
     def tijd(self, tijd):
         """Deze functie houdt de tijd bij."""
 
@@ -56,6 +59,7 @@ class Trein(object):
         if not verbinding1 in sporen and not verbinding2 in sporen:
             sporen.append(verbinding1)
 
+            
     def opties_randomconstr(self, sporen, graph, trajecten_algemeen,
             huidig_station):
         """
@@ -142,6 +146,7 @@ class Trein(object):
             # Return beste station en kortste tijd.
             return beste_station, beste_tijd
 
+
     # Random kiezen.
     def opties_random(self, sporen, graph, trajecten_algemeen, huidig_station):
         """
@@ -162,6 +167,7 @@ class Trein(object):
             trajecten_algemeen.append(beste_station)
 
         return beste_station, beste_tijd
+
 
     def opties_farest(self, sporen, graph, trajecten_algemeen, huidig_station):
         """
@@ -252,6 +258,7 @@ class Trein(object):
             beste_station = rij[0][0]
             beste_tijd = int(rij[1][0])
             return beste_station, beste_tijd
+
 
     # Deze functie maakt de beslissing welk spoor er wordt genomen.
     def opties_nearest(self, sporen, graph, trajecten_algemeen,
@@ -345,6 +352,7 @@ class Trein(object):
             beste_tijd = int(rij[1][0])
             return beste_station, beste_tijd
 
+
     def pop(self, trajecten_algemeen, sporen):
         """
         Deze functie verwijderd de laatste verbinding uit sporen.
@@ -366,6 +374,7 @@ class Trein(object):
         # Verwijder laatste verbinding uit sporen.
         if laatste_verbinding == sporen[-1]:
             pop3 = sporen.pop()
+
 
     def verminderen(self, laatste_verbinding):
         """Deze functie verwijderd tijd van laatste verbinding."""

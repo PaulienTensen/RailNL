@@ -38,7 +38,7 @@ def visualisatie(x, STATIONS, VERBINDINGEN):
     kleuren = ["olive", "orange", "green", "blue", "black", "red", "pink",\
             "yellow", "purple", "cyan", "brown", "magenta", "aqua", "teal", \
             "maroon", "fuchsia"]
-    counter = 0
+    teller = 0
 
     with open(VERBINDINGEN) as verbinding_bestand:
         bestand_lezer = csv.reader(verbinding_bestand)
@@ -47,7 +47,7 @@ def visualisatie(x, STATIONS, VERBINDINGEN):
         for rij in bestand_lezer:
 
             # Skip eerste regel uit file.
-            if counter != 0:
+            if teller != 0:
                 verbinding1.append(rij[0])
                 verbinding2.append(rij[1])
                 lengte.append(rij[2])
@@ -56,16 +56,16 @@ def visualisatie(x, STATIONS, VERBINDINGEN):
 
                 som_totaal = som_totaal + float(rij[2])
 
-            counter += 1
+            teller += 1
 
     # Plot de hele lijnvoering, maak deze grijs.
     for j in range(0, len(verbinding1)):
-            counter1 = stations.index(verbinding1[j])
-            verbinding1x = float(x_coordinaten[counter1])
-            verbinding1y = float(y_coordinaten[counter1])
-            counter2 = stations.index(verbinding2[j])
-            verbinding2x = float(x_coordinaten[counter2])
-            verbinding2y = float(y_coordinaten[counter2])
+            teller1 = stations.index(verbinding1[j])
+            verbinding1x = float(x_coordinaten[teller1])
+            verbinding1y = float(y_coordinaten[teller1])
+            teller2 = stations.index(verbinding2[j])
+            verbinding2x = float(x_coordinaten[teller2])
+            verbinding2y = float(y_coordinaten[teller2])
 
             plt.plot([verbinding1y, verbinding2y],
                     [verbinding1x, verbinding2x], marker='o', color='0.9')
@@ -78,13 +78,13 @@ def visualisatie(x, STATIONS, VERBINDINGEN):
 
                 # Plot alle verbindingen, geef ze verschillende kleuren.
                 for k in range(0, len(x[i])-1):
-                    counterinput1 = stations.index(x[i][k])
-                    verbinding1xinput = float(x_coordinaten[counterinput1])
-                    verbinding1yinput = float(y_coordinaten[counterinput1])
+                    tellerinput1 = stations.index(x[i][k])
+                    verbinding1xinput = float(x_coordinaten[tellerinput1])
+                    verbinding1yinput = float(y_coordinaten[tellerinput1])
 
-                    counterinput2 = stations.index(x[i][k+1])
-                    verbinding2xinput = float(x_coordinaten[counterinput2])
-                    verbinding2yinput = float(y_coordinaten[counterinput2])
+                    tellerinput2 = stations.index(x[i][k+1])
+                    verbinding2xinput = float(x_coordinaten[tellerinput2])
+                    verbinding2yinput = float(y_coordinaten[tellerinput2])
 
                     plt.plot([verbinding1yinput, verbinding2yinput],\
                         [verbinding1xinput, verbinding2xinput], marker='o',\

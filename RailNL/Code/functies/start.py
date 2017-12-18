@@ -1,5 +1,5 @@
 # Vak: Heuristieken
-# Namen: Thomas Van Doren, Mattia Sabino Caso, Paulien Tensen.
+# Namen: Thomas Van Doren, Mattia Caso, Paulien Tensen.
 # Case: Rail NL
 #
 # In dit bestand wordt de start bepaald per traject.

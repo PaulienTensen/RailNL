@@ -17,7 +17,7 @@ import visualisatie.visualisatie
 start_time = time.clock()
 
 # Aantal iteraties van de hillclimber.
-HILL = 10
+HILL = 100000
 
 # Aantal max minuten van een traject.
 MAX = 180
@@ -52,7 +52,7 @@ uithoeken = inladen.inladen.uithoeken(graaf, stations)
 
 # Functie om de beste resultaat van de hillclimber te verkrijgen.
 resultaat = algo.hillclimber.hillclimber(SCORE, HILL, TRAJECTEN, MAX, stations,
-                                         verbindingen, uithoeken, graph,
+                                         verbindingen, uithoeken, graaf,
                                          TOTAAL_SPOREN, TOTAAL_STATIONS)
 
 # Hill climber returnd 4 gegevens. Deze worden weer opgehaald.
@@ -65,7 +65,7 @@ trajecten_algemeen = resultaat[4]
 # Totale tijd lijnvoering berekenen.
 totale_tijdsduur = (functies.minuten.minuten(alle_tijdsduur))
 
-# Alle trajecten en de score uitprinten.
+# Alle trajecten en de score uitprinten(oplossing print statement laten staan).
 print("TRAJECTEN:")
 for i in range(len(alle_trajecten)):
     print()

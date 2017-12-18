@@ -43,8 +43,12 @@ def traject_maker(RANGE, MAX, stations, verbindingen, uithoeken, graph, \
 
             else:
                 # Beste optie kiezen aan de hand van de mogelijkheden.
+<<<<<<< HEAD
                 beste_optie = trein.opties_randomconstr(sporen, graph, 
                         trajecten_algemeen, trein.eindstation[0])
+=======
+                beste_optie = trein.opties_nearest(sporen, graph, trajecten_algemeen, trein.eindstation[0])
+>>>>>>> 6ead7126a1c5436cad98ca4288d1b105c6a8b60c
                 
                 # Spoor toevoegen.
                 trein.spoor_toevoegen(sporen, trein.eindstation[0], beste_optie)

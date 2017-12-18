@@ -15,7 +15,7 @@ def volgend_spoor(nieuw_station, traject):
     traject.append(nieuw_station)
 
 
-def pop(trajecten_algemeen, sporen, traject):
+def pop(trajecten_algemeen, oud_trajecten_algemeen, sporen, traject):
       
         a = traject[-1]
         b = traject[-2]
@@ -23,11 +23,22 @@ def pop(trajecten_algemeen, sporen, traject):
         
         pop = traject.pop() 
          
-        pop2 = trajecten_algemeen.pop()
+         
+
         
-        # Als er maar 1 station in traject is, kun je niet deze niet verwijderen. 
-        if not pop == pop2:
-            trajecten_algemeen.append(pop2)
+        if len(trajecten_algemeen) == len(oud_trajecten_algemeen):
+            trajecten_algemeen = trajecten_algemeen
+            
+        else:
+
+            pop2 = trajecten_algemeen.pop()
+
+        
+        
+       
+            # Als er maar 1 station in traject is, kun je niet deze niet verwijderen. 
+            if not pop == pop2:
+                trajecten_algemeen.append(pop2)
         
         # Verwijder laatste verbinding uit sporen. 
         if laatste_verbinding == sporen[-1]:

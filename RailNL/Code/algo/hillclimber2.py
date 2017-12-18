@@ -14,7 +14,7 @@ def hillclimber2(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_
     sporen_def = copy.deepcopy(sporen1)
     totaal_tijd_def = copy.deepcopy(totale_tijdsduur1)
 
-    for i in range (HILL2):
+    for j in range (HILL2):
     
 
         
@@ -48,7 +48,7 @@ def hillclimber2(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_
                 functies.hill2.volgend_spoor(beste_optie[0], eigen_traject)
 
             if nieuwe_tijdsduur > MAX:
-                functies.hill2.pop(trajecten_algemeen, sporen, eigen_traject)
+                functies.hill2.pop(trajecten_algemeen, trajecten_algemeen1, sporen, eigen_traject)
                 nieuwe_tijdsduur = nieuwe_tijdsduur - beste_optie[1]
             
 
@@ -66,8 +66,10 @@ def hillclimber2(alle_trajecten1, alle_tijdsduur1, totale_tijdsduur1, trajecten_
         totaal_tijd = functies.minuten.minuten(nieuw_alle_tijden)
         score = functies.scorefunctie.score(nieuw_alle_trajecten, totaal_tijd, sporen, TOTAAL_SPOREN)
         
-        if score > score1:
         
+            
+        if score > score1:
+
             score1 = score
             alle_tijdsduur_def = nieuw_alle_tijden
             alle_trajecten_def = nieuw_alle_trajecten
